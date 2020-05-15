@@ -1,6 +1,6 @@
 # [Week4] Activity/Fragment
 simple demo
-[ ] Activity
-[ ] Fragment
-[ ] DialogFragment
-[ ] Parcel
+[] Activity
+[] Fragment
+[] DialogFragment
+[] Parcel
