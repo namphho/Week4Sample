@@ -3,6 +3,7 @@ package com.hnam.week4sample
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.hnam.week4sample.activity.ActivityA
 import com.hnam.week4sample.dialog.LoginDialog
 import com.hnam.week4sample.fragment.DemoFragmentActivity

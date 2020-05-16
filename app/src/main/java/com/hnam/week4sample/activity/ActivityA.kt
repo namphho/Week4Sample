@@ -1,5 +1,6 @@
 package com.hnam.week4sample.activity
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,6 +25,24 @@ class ActivityA : AppCompatActivity() {
             bundle.putString(KEY_DATA, data)
             i.putExtras(bundle)
             startActivity(i)
+        }
+        btn_start_activity_result.setOnClickListener {
+            val i = Intent(this@ActivityA, ActivityB::class.java)
+            startActivityForResult(i, KEY_REQUEST)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == KEY_REQUEST){
+            //action for activity B
+            if (resultCode == Activity.RESULT_OK){
+                val bundle = data?.extras
+                bundle?.let {
+                    val text = it.getString("FROM_B")
+                    tv_received.text = text
+                }
+            }
         }
     }
 }

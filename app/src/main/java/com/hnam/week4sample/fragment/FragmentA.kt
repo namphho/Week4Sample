@@ -1,5 +1,6 @@
 package com.hnam.week4sample.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -27,10 +28,22 @@ class FragmentA : BaseFragment(){
         return FragmentA::class.java.simpleName
     }
 
+    lateinit var callback : FragACallback
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callback = activity as FragACallback
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_1.setOnClickListener {
-            (activity as DemoFragmentActivity).moveFragB()
+            //callback.moveToFragB()
+            callback.sendData("tony@gmail.com",30)
         }
+    }
+
+    interface FragACallback{
+        fun moveToFragB()
+        fun sendData(email: String, age: Int)
     }
 }
